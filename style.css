@@ -1,0 +1,560 @@
+@import "normalize.css";
+
+:root {
+  --nav-height: 60px;
+  --black: hsl(0 0% 2%);
+  --white: hsl(0 0% 98%);
+  --content-width: 120ch;
+  --accent: hsl(10 90% 50%);
+}
+
+body {
+  min-height: 200vh;
+  font-family: sans-serif, system-ui;
+  background: var(--black);
+}
+
+:is(nav, footer) {
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+footer {
+  height: var(--nav-height);
+  text-align: center;
+}
+
+nav {
+  position: sticky;
+  top: calc(var(--nav-height) * 0.25);
+  border-bottom: 4px solid transparent;
+  z-index: 10;
+}
+
+.nav__content {
+  width: var(--content-width);
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.nav__content {
+  display: grid;
+}
+
+.nav__content div {
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.nav__content div:first-of-type {
+  justify-content: center;
+}
+
+.watermark-bear {
+  --base-coat: var(--white);
+  width: 60px;
+}
+
+/* Header section */
+header {
+  height: 200vh;
+
+}
+
+header section {
+  display: grid;
+  place-items: center;
+  align-content: end;
+  position: relative;
+  overflow: hidden;
+  position: sticky;
+  top: var(--nav-height);
+  background: var(--white);
+}
+/*  height: calc(75vh - var(--nav-height));*/
+
+.header-spin {
+  height: calc(75vh - var(--nav-height));
+  background: var(--white);
+  width: 100%;
+  display: grid;
+  place-items: center;
+  align-content: end;
+  position: relative;
+  overflow: hidden;
+}
+
+header > section {
+  overflow: visible;
+  position: sticky;
+  top: var(--nav-height);
+  display: block;
+}
+
+
+/*header div {
+  height: auto;
+  position: sticky;
+  top: 75vh;
+}*/
+
+header div section {
+  height: auto;
+  background: var(--black);
+}
+
+header img {
+  aspect-ratio: 1;
+  object-fit: cover;
+  width: 60vmin;
+  object-position: 0 0;
+/*  opacity: 0.5;*/
+  bottom: 0;
+  left: 50%;
+  position: absolute;
+  translate: -50% 10px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+[for=switch] {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  opacity: 0.1;
+}
+
+#looker {
+  display: none;
+}
+
+:root {
+  --fps: 18;
+}
+:root:has(#switch:checked) #looker {
+  --fps: 20;
+  display: block;
+}
+:root:has(#switch:checked) #spinner {
+  display: none;
+}
+
+
+header img {
+  animation: spin-img both steps(var(--fps)), fade-img both linear;
+  animation-timeline: --header;
+}
+
+header h1 span {
+  clip-path: inset(100% 0 0 0);
+  animation: unclip both linear;
+  animation-timeline: --header;
+}
+
+header h1 span:last-of-type {
+  translate: 0 -2px;
+}
+
+@keyframes unclip {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes fade-img {
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin-img {
+  to {
+    object-position: 100% 0;
+  }
+}
+
+header h1 {
+  display: inline-block;
+  position: absolute;
+  display: inline-grid;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  margin: 0;
+  color: var(--white);
+  transform: skewX(-2deg);
+  font-size: clamp(2rem, 10vw + 0.1rem, 6rem);
+}
+
+sub {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-weight: bold;
+  font-style: italic;
+  opacity: 0.5;
+}
+
+header h1 span {
+  justify-self: start;
+  padding: 1rem;
+  background: var(--accent);
+}
+
+/* First content section */
+.scroll-section {
+  padding: 0 1rem;
+}
+.scroll-section section {
+  width: var(--content-width);
+  margin: 0 auto;
+  padding: 6rem 0;
+}
+
+.black-n-white {
+  background: var(--black);
+  color: var(--white);
+}
+
+.black-n-white section {
+  width: calc(var(--content-width) * 0.6);
+  max-width: 100%;
+}
+
+.black-n-white h2 {
+  font-size: 3.25rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+.black-n-white p {
+  font-size: 1.5rem;
+  text-align: left;
+  opacity: 0.8;
+}
+
+.sec {
+    background: var(--white);
+    color: var(--black);
+}
+  
+.sec section {
+    width: calc(var(--content-width) * 0.6);
+    max-width: 100%;
+}
+  
+.sec h2 {
+    font-size: 3.25rem;
+    text-align: center;
+    margin-top: 0;
+}
+  
+.sec p {
+    font-size: 1.5rem;
+    text-align: left;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.exp h3{
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 3.5rem;
+}
+
+/* Laptop section */
+
+
+/* Blinker section */
+
+.blinker section {
+  padding: 0;
+  height: calc(100vh - var(--nav-height));
+  display: grid;
+  place-items: center;
+  position: sticky;
+  top: var(--nav-height);
+}
+
+.blinker p span {
+  opacity: 0;
+  display: inline-block;
+  animation: fade-in both linear, fade-out both linear;
+  animation-timeline: view(), --blinker;
+}
+
+main {
+  background: var(--white);
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.remain {
+  --final-color: var(--accent);
+}
+
+@keyframes fade-out {
+  100% {
+    color: var(--final-color, hsl(0 0% 98% / 0.25));
+  }
+}
+
+
+/* Sign off */
+.sign-off {
+  height: 150vh;
+  contain: inline-size;
+  padding: 0;
+}
+.sign-off section {
+  height: calc(100vh - var(--nav-height));
+  position: sticky;
+  align-content: center;
+  top: var(--nav-height);
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding: 0;
+  background: var(--white);
+}
+.sign-off h2 {
+  text-align: center;
+  font-size: 3.75rem;
+  padding-top: 3rem;
+  background: linear-gradient(-65deg, var(--accent), hsl(10 100% 50%), hsl(10 100% 30%), hsl(20 100% 30%), hsl(10 100% 80%), hsl(10 80% 60%), red, var(--accent));
+  background-size: 200% 200%;
+  background-clip:text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shift-bg both linear;
+  animation-timeline: --sign-off;
+}
+
+@keyframes shift-bg {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.sig {
+  width: 50vmin;
+}
+
+.sig path {
+  stroke-dasharray: var(--path-length);
+  stroke-dashoffset: calc(var(--path-length) * 1);
+  animation: sign both ease-in-out;
+  animation-timeline: --sign-off;
+}
+
+.sig :is(.eye, .nose) {
+  animation: sign both ease-in-out, fill both linear;
+  animation-timeline: --sign-off;
+}
+
+@keyframes sign {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill {
+  to {
+    fill: var(--black);
+  }
+}
+
+
+
+/* Animation specific stuff */
+nav {
+  animation: stick both linear;
+  animation-timeline: scroll(root);
+}
+
+@keyframes stick {
+  to {
+    background-color: hsl(0 0% 2% / 0.75);
+    backdrop-filter: blur(4px);
+    border-bottom-color: var(--accent);
+  }
+}
+
+
+
+/* Cuboid related stuff */
+/* Cuboid boilerplate code */
+.cuboid {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.cuboid__side {
+  background: var(--color);
+  filter: brightness(var(--b, 1));
+  position: absolute;
+}
+.cuboid__side:nth-of-type(1) {
+  --b: 1.1;
+  height: calc(var(--depth, 20) * 1vmin);
+  width: 100%;
+  top: 0;
+  transform: translate(0, -50%) rotateX(90deg);
+}
+.cuboid__side:nth-of-type(2) {
+  --b: 0.9;
+  height: 100%;
+  width: calc(var(--depth, 20) * 1vmin);
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%) rotateY(90deg);
+}
+.cuboid__side:nth-of-type(3) {
+  --b: 0.5;
+  width: 100%;
+  height: calc(var(--depth, 20) * 1vmin);
+  bottom: 0;
+  transform: translate(0%, 50%) rotateX(90deg);
+}
+.cuboid__side:nth-of-type(4) {
+  --b: 1;
+  height: 100%;
+  width: calc(var(--depth, 20) * 1vmin);
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%) rotateY(90deg);
+}
+.cuboid__side:nth-of-type(5) {
+  --b: 0.8;
+  height: 100%;
+  width: 100%;
+  transform: translate3d(0, 0, calc(var(--depth, 20) * 0.5vmin));
+  top: 0;
+  left: 0;
+}
+.cuboid__side:nth-of-type(6) {
+  --b: 1.2;
+  height: 100%;
+  width: 100%;
+  transform: translate3d(0, 0, calc(var(--depth, 20) * -0.5vmin)) rotateY(180deg);
+  top: 0;
+  left: 0;
+}
+
+@keyframes blink {
+  0%, 46%, 48%, 50%, 100% {
+    scale: 1 1;
+  }
+  47%, 49% {
+    scale: 1 0.01;
+  }
+}
+
+.gradient-header {
+  background: radial-gradient(circle at 50% 105%, white 20%, hsl(0 0% 40%));
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Demos section */
+.demos {
+  height: 250vh;
+  padding: 0;
+}
+.demos section {
+  position: sticky;
+  top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+  width: 100%;
+  overflow: hidden;
+  background: var(--white);
+  display: grid;
+  place-items: center;
+  align-content: center;
+}
+
+.demos .life {
+  font-size: var(--font-size);
+  margin: 0;
+  animation: fade-in-text both linear;
+  animation-timeline: --demos;
+  color: var(--accent);
+}
+
+.text-wrapper {
+  --font-size: clamp(8rem, 15vw, 20rem);
+  position: relative;
+}
+
+.bringing, .notebook, .keyboard {
+  position: absolute;
+}
+.bringing {
+  font-size: 2rem;
+  bottom: calc(100% + 1rem);
+  animation: fade-in-text both linear;
+  animation-timeline: --demos;
+}
+
+@keyframes fade-in-text {
+  0% {
+    opacity: 0;
+  }
+}
+
+.notebook {
+  width: 110%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+  animation: slide-in both linear, slide-out both linear;
+  animation-timeline: --demos;
+}
+
+@keyframes slide-in {
+  0% {
+    translate: -50% 100vh;
+  }
+}
+
+@keyframes slide-out {
+  100% {
+    transform: translateY(var(--font-size));
+  }
+}
+
+.keyboard {
+  width: 200%;
+  position: absolute;
+  top: 120%;
+  rotate: -15deg;
+  left: 50%;
+  translate: -50% 0;
+  animation: slide-in both cubic-bezier(.9,1.1,.9, 1.1);
+  animation-timeline: --demos;
+}
